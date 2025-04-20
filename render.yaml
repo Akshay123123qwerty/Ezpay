@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: ezpay-backend
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn UPIbackend.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: UPIbackend.settings
+      - key: SECRET_KEY
+        value: bq8#d(s0^2d$lr$+j-w^5l8ew)c(p7x#x7^aomq7i%nf#-8o!#
+    buildFilter:
+      paths:
+        - UPIbackend/**
+
+  - type: web
+    name: ezpay-frontend
+    env: static
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://ezpay-backend.onrender.com
+    buildFilter:
+      paths:
+        - frontend/**
