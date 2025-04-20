@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/b7d80644-c65d-47f7-ade5-3c10a77b43e6)# 💸 EzPay – Digital Wallet System
+## 💸 EzPay – Digital Wallet System
 
 EzPay is a modern digital wallet system built with **React.js** and **Django**, allowing users to:
 - Complete KYC with Aadhaar
@@ -91,6 +91,6 @@ EzPay is a modern digital wallet system built with **React.js** and **Django**, 
 
 ---
 ## 📸 Demo
-
+![image](https://github.com/user-attachments/assets/b7d80644-c65d-47f7-ade5-3c10a77b43e6)# 
 
 
