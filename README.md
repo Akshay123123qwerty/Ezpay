@@ -12,6 +12,7 @@ EzPay is a modern digital wallet system built with **React.js** and **Django**, 
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Usage](#usage)
+- [Demo](#Demo)
 - [Future Enhancements](#future-enhancements)
 ---
 
@@ -71,6 +72,10 @@ EzPay is a modern digital wallet system built with **React.js** and **Django**, 
 
 ---
 
+## 📸 Demo
+![image](https://github.com/user-attachments/assets/b7d80644-c65d-47f7-ade5-3c10a77b43e6)
+
+---
 
 ## 🔮 Future Enhancements
 
@@ -89,8 +94,6 @@ EzPay is a modern digital wallet system built with **React.js** and **Django**, 
 ### 🛠️ Multi-Language Support
 - Implement multi-language support for a more inclusive user experience.
 
----
-## 📸 Demo
-![image](https://github.com/user-attachments/assets/b7d80644-c65d-47f7-ade5-3c10a77b43e6)
+
 
 
