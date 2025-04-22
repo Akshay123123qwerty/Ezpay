@@ -5,14 +5,9 @@ const Logout: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Clear local storage
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
     localStorage.removeItem('username');
-
-    // Optional: clear other app-specific state here
-
-    // Redirect to login
     navigate('/login');
   }, [navigate]);
 
