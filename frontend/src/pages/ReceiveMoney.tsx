@@ -1,14 +1,13 @@
-// src/pages/ReceiveMoney.tsx
 import React, { useEffect } from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
 import { useNavigate } from 'react-router-dom';
-import { useWallet } from '../context/WalletContext'; // ✅ import context
+import { useWallet } from '../context/WalletContext';
 
 const ReceiveMoney: React.FC = () => {
   const walletAddress = 'user_wallet_address_12345';
   const navigate = useNavigate();
 
-  const { balance, refreshBalance } = useWallet(); // ✅ use context
+  const { balance, refreshBalance } = useWallet(); 
 
    useEffect(() => {
      refreshBalance();
