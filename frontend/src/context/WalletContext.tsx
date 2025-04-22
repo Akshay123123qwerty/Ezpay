@@ -1,4 +1,3 @@
-// src/context/WalletContext.tsx
 import React, { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 
@@ -9,7 +8,7 @@ interface WalletContextType {
 }
 
 const WalletContext = createContext<WalletContextType>({
-  balance: 12000, // default balance
+  balance: 12000,
   refreshBalance: () => {},
   setBalance: () => {},
 });
