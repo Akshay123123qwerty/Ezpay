@@ -10,7 +10,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-# ✅ GET all users except current user
+# GET all users except current user
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def list_users(request):
@@ -18,18 +18,17 @@ def list_users(request):
     usernames = [user.username for user in users]
     return Response(usernames)
 
-# ✅ Register endpoint
+# Register endpoint
 @api_view(['POST'])
 def register(request):
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
         user = serializer.save()
-        # Create a wallet for the new user with an initial balance (default 12000)
         wallet.objects.create(user=user, balance=12000)
         return Response({'message': 'User registered successfully'}, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# ✅ Login endpoint
+# Login endpoint
 @api_view(['POST'])
 def login(request):
     serializer = LoginSerializer(data=request.data)
@@ -39,7 +38,7 @@ def login(request):
         return Response(tokens, status=status.HTTP_200_OK)
     return Response({'detail': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
 
-# ✅ Send money
+# Send money
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def send_money(request):
@@ -93,18 +92,16 @@ def send_money(request):
         "new_balance": sender_wallet.balance
     }, status=status.HTTP_201_CREATED)
 
-# ✅ Receive money (simulated)
+# Receive money (simulated)
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def receive_money(request):
     user = request.user
     
-    # Check if KYC is verified before allowing access
     wallet_obj = wallet.objects.get(user=user)
     if not wallet_obj.kyc_verified:
         return Response({"detail": "KYC verification is required to receive money."}, status=status.HTTP_403_FORBIDDEN)
-    
-    # Proceed with the money receive functionality
+        
     sender_username = request.data.get('sender')
     amount = request.data.get('amount')
 
@@ -129,13 +126,12 @@ def receive_money(request):
     )
     return Response({"message": "Transaction created"}, status=status.HTTP_201_CREATED)
 
-# ✅ Transaction history for a user
+# Transaction history for a user
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def transaction_history(request):
     user = request.user
 
-    # Check if KYC is verified
     wallet_obj = wallet.objects.get(user=user)
     if not wallet_obj.kyc_verified:
         return Response({"detail": "KYC verification is required to view transaction history."}, status=status.HTTP_403_FORBIDDEN)
@@ -146,7 +142,7 @@ def transaction_history(request):
     serializer = TransactionSerializer(transactions, many=True)
     return Response(serializer.data)
 
-# ✅ Get wallet balance
+# Get wallet balance
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_wallet_balance(request):
