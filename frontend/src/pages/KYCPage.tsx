@@ -10,7 +10,7 @@ const KYCPage = () => {
     e.preventDefault();
 
     try {
-      const accessToken = localStorage.getItem('access_token'); // assuming you stored JWT here
+      const accessToken = localStorage.getItem('access_token');
 
       const response = await axios.post(
         `${import.meta.env.VITE_API_BASE_URL}/wallet/kyc/`,
