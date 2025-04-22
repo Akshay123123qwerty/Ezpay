@@ -40,7 +40,7 @@ const SendMoney: React.FC = () => {
     fetchUsers();
   }, []);
 
-  // ✅ Redirect if not KYC verified
+ 
   useEffect(() => {
     if (kycVerified === false) {
       navigate('/kyc');
