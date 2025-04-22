@@ -25,7 +25,7 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     if (!token) return;
 
     try {
-      const res = await axios.get("http://localhost:8000/wallet/balance/", {
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/wallet/balance/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
