@@ -81,7 +81,7 @@ const navigate = useNavigate();
         </button>
       </div>
 
-      {/* Tailwind custom scrollbar styles */}
+      {/* For custom scrollbar */}
       <style>
         {`
           .custom-scroll::-webkit-scrollbar {
