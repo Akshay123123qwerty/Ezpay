@@ -22,7 +22,7 @@ const KYCForm = () => {
 
     try {
       await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/wallet/kyc/`, // ✅ Corrected endpoint
+        `${import.meta.env.VITE_API_BASE_URL}/wallet/kyc/`, 
         { aadhaar_number: aadhaarNumber },
         {
           headers: {
