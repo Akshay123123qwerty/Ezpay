@@ -24,13 +24,13 @@ const Login: React.FC = () => {
       
       console.log('API Response:', response.data);
        
-      // Save JWT tokens and username to localStorage
+      
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
       localStorage.setItem('username', response.data.username);
       console.log(localStorage.getItem('username'));
 
-      // Navigate to dashboard after successful login
+     
       navigate('/dashboard');
     } catch (err: any) {
       setError(err.response?.data?.detail || 'Login failed. Please try again.');
